@@ -1,0 +1,31 @@
+{
+  "name": "@asaje/fetch",
+  "version": "0.0.8",
+  "type": "module",
+  "description": "A lightweight fetch wrapper with useful features like abort controller, applying middleware functions to request or response interceptor",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@types/node": "^20.1.4",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.2",
+    "vite-plugin-dts": "^2.3.0",
+    "vitest": "^0.31.0"
+  },
+  "main": "./dist/fetch.umd.cjs",
+  "module": "./dist/fetch.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/fetch.js",
+      "require": "./dist/fetch.umd.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ]
+}
