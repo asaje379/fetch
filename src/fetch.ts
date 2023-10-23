@@ -74,7 +74,8 @@ export class Fetch {
         data,
         isSuccess: isSuccessResponse,
       });
-      if (isSuccessResponse) return { ...response, abort: controller.abort };
+      if (isSuccessResponse)
+        return { ...response, abort: controller.abort, response: res };
       throw { ...response };
     } catch (error: any) {
       const _res = await this.applyInterceptors({
