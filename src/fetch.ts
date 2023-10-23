@@ -18,8 +18,8 @@ export class Fetch {
   interceptors: FetchInterceptor[] = [];
   baseURL = '';
 
-  constructor(config: FetchConfig) {
-    this.baseURL = config.baseURL ?? '';
+  constructor(config?: FetchConfig) {
+    this.baseURL = config?.baseURL ?? '';
   }
 
   private async applyMiddlewares(
@@ -76,7 +76,7 @@ export class Fetch {
       });
       if (isSuccessResponse)
         return { ...response, abort: controller.abort, response: res };
-      throw { ...response };
+      throw { ...response, status: res.status, response: res };
     } catch (error: any) {
       const _res = await this.applyInterceptors({
         response: res,
@@ -190,3 +190,5 @@ export class Fetch {
     });
   }
 }
+
+export const api = new Fetch();
