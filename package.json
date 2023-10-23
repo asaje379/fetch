@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "prepublish": "npm run build"
   },
   "devDependencies": {
     "@types/node": "^20.1.4",
@@ -19,12 +20,6 @@
   "main": "./dist/fetch.umd.cjs",
   "module": "./dist/fetch.js",
   "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/fetch.js",
-      "require": "./dist/fetch.umd.cjs"
-    }
-  },
   "files": [
     "dist"
   ],
