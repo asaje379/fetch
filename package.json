@@ -1,6 +1,6 @@
 {
   "name": "@asaje/fetch",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "type": "module",
   "description": "A lightweight fetch wrapper with useful features like abort controller, applying middleware functions to request or response interceptor",
   "scripts": {
