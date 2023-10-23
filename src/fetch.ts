@@ -7,7 +7,7 @@ import {
   RequestConfig,
   FetchResponse,
 } from './typings';
-import { formatURL } from './utils';
+import { formatURL, isSuccessHttpCode } from './utils';
 
 const oldFetch = window.fetch;
 
@@ -69,8 +69,13 @@ export class Fetch {
       ]();
 
       // Applying interceptors
-      const response = await this.applyInterceptors({ data, isSuccess: true });
-      return { ...response, abort: controller.abort };
+      const isSuccessResponse = isSuccessHttpCode(res.status);
+      const response = await this.applyInterceptors({
+        data,
+        isSuccess: isSuccessResponse,
+      });
+      if (isSuccessResponse) return { ...response, abort: controller.abort };
+      throw { ...response };
     } catch (error: any) {
       const _res = await this.applyInterceptors({
         response: res,

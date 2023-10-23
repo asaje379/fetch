@@ -27,5 +27,13 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "author": {
+    "email": "salemaffa@gmail.com",
+    "name": "Salem AFFA"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asaje379/fetch.git"
+  }
 }

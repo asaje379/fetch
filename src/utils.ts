@@ -18,3 +18,7 @@ export function formatURL(baseURL = '', url: string) {
 
   return [_baseURL, _url].join('/');
 }
+
+export function isSuccessHttpCode(code: number) {
+  return 199 < code && code < 300;
+}
